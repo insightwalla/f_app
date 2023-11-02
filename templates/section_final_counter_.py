@@ -12,6 +12,7 @@ def final_page(name_db: str, section: str, name_user: str):
     for i, venue in enumerate(list_of_venue):
         venue_data = data[data['Reservation: Venue'] == venue]
         venue_data_to_lab = venue_data[venue_data['Sentiment'] == 'NEGATIVE']
+        venue_data_to_lab = venue_data_to_lab[venue_data_to_lab['Details'] != '']
         tot_ = len(venue_data_to_lab) + 6
         tot_done = len(venue_data_to_lab[venue_data_to_lab['Label: Dishoom'] != ''])
         tot_not_done = len(venue_data_to_lab[venue_data_to_lab['Label: Dishoom'] == ''])
